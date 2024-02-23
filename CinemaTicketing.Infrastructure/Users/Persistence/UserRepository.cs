@@ -21,7 +21,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetByIdAsync(int userId, CancellationToken cancellationToken)
     {
-        return await _context.Users.FindAsync(userId , cancellationToken);
+        return await _context.Users.FindAsync(userId, cancellationToken);
     }
 
     public async Task RemoveAsync(User user, CancellationToken cancellationToken)

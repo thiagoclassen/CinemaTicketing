@@ -6,7 +6,6 @@ using CinemaTicketing.Infrastructure.Screenings.Persistence;
 using CinemaTicketing.Infrastructure.Theaters.Persistence;
 using CinemaTicketing.Infrastructure.Users.Persistence;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Client;
 
 namespace CinemaTicketing.Infrastructure;
 
@@ -26,12 +25,12 @@ public static class DependencyInjection
 
         services.AddScoped<IBookingRepository, BookingRepository>();
         services.AddScoped<IReservationRepository, ReservationRepository>();
-        
+
         services.AddScoped<IMovieRepository, MovieRepository>();
         services.AddScoped<IGenreRepository, GenreRepository>();
 
         services.AddScoped<IScreeningRepository, ScreeningRepository>();
-        
+
         services.AddScoped<ITheaterRepository, TheaterRepository>();
         services.AddScoped<IRoomRepository, RoomRepository>();
         services.AddScoped<ISeatRepository, SeatRepository>();

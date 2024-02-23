@@ -1,5 +1,4 @@
 ﻿using CinemaTicketing.Domain;
-using CinemaTicketing.Domain.Booking;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

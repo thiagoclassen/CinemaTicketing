@@ -1,6 +1,4 @@
-﻿using CinemaTicketing.Domain.Movies;
-
-namespace CinemaTicketing.Domain.Screenings;
+﻿namespace CinemaTicketing.Domain.Screenings;
 
 public class Screening
 {
@@ -9,5 +7,5 @@ public class Screening
     public decimal Price { get; set; }
 
     public int MovieId { get; set; }
-    public int RoomId  { get; set; }
+    public int RoomId { get; set; }
 }

@@ -1,12 +1,10 @@
-﻿using CinemaTicketing.Domain;
-using CinemaTicketing.Domain.Booking;
-using CinemaTicketing.Domain.Theaters;
+﻿using CinemaTicketing.Domain.Booking;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CinemaTicketing.Infrastructure.Bookings.Configuration;
 
-public class ReservationConfiguration:IEntityTypeConfiguration<Reservation>
+public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
 {
     public void Configure(EntityTypeBuilder<Reservation> builder)
     {
@@ -20,7 +18,7 @@ public class ReservationConfiguration:IEntityTypeConfiguration<Reservation>
             .WithMany(u => u.Reservations)
             .HasForeignKey(r => r.UserId)
             .IsRequired();
-        
+
         builder
             .HasMany(r => r.Seats)
             .WithOne()

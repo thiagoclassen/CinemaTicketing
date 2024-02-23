@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Class1.cs" />
+        <Compile Remove="Class1.cs"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CinemaTicketing.Domain\CinemaTicketing.Domain.csproj" />
+        <ProjectReference Include="..\CinemaTicketing.Domain\CinemaTicketing.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

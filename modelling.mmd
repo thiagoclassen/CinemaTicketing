@@ -1,73 +1,74 @@
 erDiagram
-    m[Movies]{
+    m[Movies] {
         int id PK
         string title
         string description
-        int duration        
+        int duration
         string director
         int ageRestriction
     }
-    mg[MoviesGenres]{
+    mg[MoviesGenres] {
         int movieId FK
         int genreId FK
     }
-    g[Genres]{
+    g[Genres] {
         int id PK
         string genreName
     }
-    t[Theathers]{
+    t[Theathers] {
         int id PK
         string name
-        string address        
+        string address
     }
-    r[Rooms]{
+    r[Rooms] {
         int id PK
         int theaterId FK
         int capacity
         int rows
-        int columns        
+        int columns
     }
-    s[Seats]{
+    s[Seats] {
         int id PK
         int roomId FK
         string row
         int column
     }
-    sc[Screening]{
+    sc[Screening] {
         int id PK
-        int movieId FK        
+        int movieId FK
         int roomId FK
         date schedule
         double price
     }
-    b[Booking]{
-        int id PK        
-        uuid userId FK
-        bool checkedOut
-    }
-    rs[Reservation]{
-        int id PK       
+    rs[Reservation] {
+        int id PK
         uuid userId PK
-        bool confirmed        
+        bool confirmed
         DateTime reservedUntil
     }
-    usr[User]{
+    usr[User] {
         uuid id PK
         string name
         date birthday
         string password
     }
-    
-    m 1 to many(1) mg : has
-    g many(1) to 1 mg : part_of
-    t 1 to many(1) r : contains
-    r 1 to many(1) s : contains
-    sc 1 to 1 m : displays
-    sc many(1) to 1 r : on    
-    b 1 to 1+ s : reserves
-    usr 1 to 1+ rs : does
-    rs 1 to 1 b : confirms
-    rs 1 to many(1) s : reserves
+    sr[SeatReservation] {
+        int id PK
+        id reservationId FK
+        int screening FK "theater,room"
+        int seatId FK
+    }
+
+    m 1 to many(1) mg: has
+    g many(1) to 1 mg: part_of
+    t 1 to many(1) r: contains
+    r 1 to many(1) s: contains
+    sc 1 to 1 m: displays
+    sc many(1) to 1 r: on
+    usr 1 to 1+ rs: does
+    rs 1 to many(1) sr: contains
+    sr 1 to 1+ sc: has
+    sr 1 to 1 s: reserves
     
     
     

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CinemaTicketing.Infrastructure.Movies.Configuration;
 
-public class MovieConfiguration:IEntityTypeConfiguration<Movie>
+public class MovieConfiguration : IEntityTypeConfiguration<Movie>
 {
     public void Configure(EntityTypeBuilder<Movie> builder)
     {

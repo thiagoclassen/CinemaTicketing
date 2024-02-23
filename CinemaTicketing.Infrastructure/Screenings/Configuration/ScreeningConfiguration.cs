@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CinemaTicketing.Infrastructure.Screenings.Configuration;
 
-public class ScreeningConfiguration:IEntityTypeConfiguration<Screening>
+public class ScreeningConfiguration : IEntityTypeConfiguration<Screening>
 {
     public void Configure(EntityTypeBuilder<Screening> builder)
     {
@@ -19,7 +19,7 @@ public class ScreeningConfiguration:IEntityTypeConfiguration<Screening>
             .HasOne<Movie>()
             .WithOne()
             .IsRequired();
-        
+
         builder
             .HasOne<Room>()
             .WithMany(r => r.Screenings)

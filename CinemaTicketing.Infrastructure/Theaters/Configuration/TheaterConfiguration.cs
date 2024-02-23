@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CinemaTicketing.Infrastructure.Theaters.Configuration;
 
-public class TheaterConfiguration:IEntityTypeConfiguration<Theater>
+public class TheaterConfiguration : IEntityTypeConfiguration<Theater>
 {
     public void Configure(EntityTypeBuilder<Theater> builder)
     {
@@ -12,8 +12,5 @@ public class TheaterConfiguration:IEntityTypeConfiguration<Theater>
 
         builder.HasKey(t => t.Id);
         builder.Property(t => t.Id).ValueGeneratedNever();
-
-        
-
     }
 }

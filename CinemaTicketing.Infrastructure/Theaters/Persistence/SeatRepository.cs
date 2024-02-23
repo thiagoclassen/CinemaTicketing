@@ -23,7 +23,7 @@ public class SeatRepository : ISeatRepository
     {
         return await _context.Seats.FindAsync(seatId, cancellationToken);
     }
-    
+
     public async Task<List<Seat>> ListByRoomIdAsync(int roomId, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();

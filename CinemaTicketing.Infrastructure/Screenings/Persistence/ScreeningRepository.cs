@@ -29,7 +29,7 @@ public class ScreeningRepository : IScreeningRepository
     {
         return await _context.Screenings.Where(s => s.RoomId == roomId).ToListAsync(cancellationToken);
     }
-    
+
     public async Task<List<Screening>> ListByMovieAsync(int movieId, CancellationToken cancellationToken)
     {
         return await _context.Screenings.Where(s => s.MovieId == movieId).ToListAsync(cancellationToken);

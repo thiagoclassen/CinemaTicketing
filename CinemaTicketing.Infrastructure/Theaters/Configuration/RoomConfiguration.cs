@@ -1,11 +1,10 @@
-﻿using CinemaTicketing.Domain.Screenings;
-using CinemaTicketing.Domain.Theaters;
+﻿using CinemaTicketing.Domain.Theaters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CinemaTicketing.Infrastructure.Theaters.Configuration;
 
-public class RoomConfiguration:IEntityTypeConfiguration<Room>
+public class RoomConfiguration : IEntityTypeConfiguration<Room>
 {
     public void Configure(EntityTypeBuilder<Room> builder)
     {
@@ -16,14 +15,14 @@ public class RoomConfiguration:IEntityTypeConfiguration<Room>
 
         builder
             .HasOne<Theater>()
-            .WithMany(t=>t.Rooms)
+            .WithMany(t => t.Rooms)
             .HasForeignKey(r => r.TheaterId)
             .IsRequired();
-        
+
         builder
             .HasMany(r => r.Seats)
             .WithOne()
-            .HasForeignKey(s=> s.RoomId)
+            .HasForeignKey(s => s.RoomId)
             .IsRequired();
     }
 }

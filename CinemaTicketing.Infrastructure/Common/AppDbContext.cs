@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<Room> Rooms { get; set; } = null!;
     public DbSet<Seat> Seats { get; set; } = null!;
     public DbSet<Screening> Screenings { get; set; } = null!;
-    public DbSet<Movie> Movies { get; set; } = null!; 
+    public DbSet<Movie> Movies { get; set; } = null!;
     public DbSet<Genre> Genres { get; set; } = null!;
     public DbSet<Booking> Bookings { get; set; } = null!;
     public DbSet<Reservation> Reservations { get; set; } = null!;

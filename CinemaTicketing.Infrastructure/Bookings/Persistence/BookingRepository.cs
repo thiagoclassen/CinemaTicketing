@@ -23,7 +23,7 @@ public class BookingRepository : IBookingRepository
     {
         return await _context.Bookings.FindAsync(bookingId, cancellationToken);
     }
-    
+
     public async Task RemoveAsync(Booking booking, CancellationToken cancellationToken)
     {
         _context.Bookings.Remove(booking);
