@@ -24,6 +24,7 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>();
 
         services.AddScoped<IReservationRepository, ReservationRepository>();
+        services.AddScoped<ISeatReservationRepository, SeatReservationRepository>();
 
         services.AddScoped<IMovieRepository, MovieRepository>();
         services.AddScoped<IGenreRepository, GenreRepository>();

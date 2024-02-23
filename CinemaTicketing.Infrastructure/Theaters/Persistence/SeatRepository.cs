@@ -1,6 +1,7 @@
 ﻿using CinemaTicketing.Application.Interfaces;
 using CinemaTicketing.Domain.Theaters;
 using CinemaTicketing.Infrastructure.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTicketing.Infrastructure.Theaters.Persistence;
 
@@ -26,7 +27,9 @@ public class SeatRepository : ISeatRepository
 
     public async Task<List<Seat>> ListByRoomIdAsync(int roomId, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _context.Seats
+            .Where(s => s.RoomId == roomId)
+            .ToListAsync(cancellationToken);
     }
 
     public async Task RemoveAsync(Seat seat, CancellationToken cancellationToken)
