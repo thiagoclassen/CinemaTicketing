@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CinemaTicketing.Domain\CinemaTicketing.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Migrations\20240211172754_Initial.Designer.cs" />
+      <Compile Remove="Migrations\20240211182233_Initial.cs" />
+      <Compile Remove="Migrations\20240211182233_Initial.Designer.cs" />
+      <Compile Remove="Migrations\20240222202843_Initial.cs" />
+      <Compile Remove="Migrations\20240222202843_Initial.Designer.cs" />
+      <Compile Remove="Migrations\20240222203457_Initial.cs" />
+      <Compile Remove="Migrations\20240222203457_Initial.Designer.cs" />
+    </ItemGroup>
+
+</Project>
