@@ -28,13 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Remove="Migrations\20240211172754_Initial.Designer.cs"/>
-        <Compile Remove="Migrations\20240211182233_Initial.cs"/>
-        <Compile Remove="Migrations\20240211182233_Initial.Designer.cs"/>
-        <Compile Remove="Migrations\20240222202843_Initial.cs"/>
-        <Compile Remove="Migrations\20240222202843_Initial.Designer.cs"/>
-        <Compile Remove="Migrations\20240222203457_Initial.cs"/>
-        <Compile Remove="Migrations\20240222203457_Initial.Designer.cs"/>
+        <Folder Include="Migrations\"/>
     </ItemGroup>
 
 </Project>

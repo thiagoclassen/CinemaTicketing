@@ -1,7 +1,7 @@
 ﻿using CinemaTicketing.Application.Interfaces;
-using CinemaTicketing.Infrastructure.Bookings.Persistence;
 using CinemaTicketing.Infrastructure.Common;
 using CinemaTicketing.Infrastructure.Movies.Persistence;
+using CinemaTicketing.Infrastructure.Reservations.Persistence;
 using CinemaTicketing.Infrastructure.Screenings.Persistence;
 using CinemaTicketing.Infrastructure.Theaters.Persistence;
 using CinemaTicketing.Infrastructure.Users.Persistence;
@@ -23,7 +23,6 @@ public static class DependencyInjection
     {
         services.AddDbContext<AppDbContext>();
 
-        services.AddScoped<IBookingRepository, BookingRepository>();
         services.AddScoped<IReservationRepository, ReservationRepository>();
 
         services.AddScoped<IMovieRepository, MovieRepository>();

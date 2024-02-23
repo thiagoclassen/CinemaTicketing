@@ -42,7 +42,8 @@ erDiagram
     }
     rs[Reservation] {
         int id PK
-        uuid userId PK
+        uuid userId FK
+        int screeningId FK "theater,room, movie"
         bool confirmed
         DateTime reservedUntil
     }
@@ -55,7 +56,6 @@ erDiagram
     sr[SeatReservation] {
         int id PK
         id reservationId FK
-        int screening FK "theater,room"
         int seatId FK
     }
 

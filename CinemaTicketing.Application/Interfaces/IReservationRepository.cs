@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Domain.Booking;
+﻿using CinemaTicketing.Domain.Reservations;
 
 namespace CinemaTicketing.Application.Interfaces;
 

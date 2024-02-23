@@ -1,6 +1,6 @@
 ﻿using CinemaTicketing.Domain;
-using CinemaTicketing.Domain.Booking;
 using CinemaTicketing.Domain.Movies;
+using CinemaTicketing.Domain.Reservations;
 using CinemaTicketing.Domain.Screenings;
 using CinemaTicketing.Domain.Theaters;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +17,8 @@ public class AppDbContext : DbContext
     public DbSet<Screening> Screenings { get; set; } = null!;
     public DbSet<Movie> Movies { get; set; } = null!;
     public DbSet<Genre> Genres { get; set; } = null!;
-    public DbSet<Booking> Bookings { get; set; } = null!;
     public DbSet<Reservation> Reservations { get; set; } = null!;
+    public DbSet<SeatReservation> SeatReservations { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -1,8 +1,8 @@
 ﻿using CinemaTicketing.Application.Interfaces;
-using CinemaTicketing.Domain.Booking;
+using CinemaTicketing.Domain.Reservations;
 using CinemaTicketing.Infrastructure.Common;
 
-namespace CinemaTicketing.Infrastructure.Bookings.Persistence;
+namespace CinemaTicketing.Infrastructure.Reservations.Persistence;
 
 public class ReservationRepository : IReservationRepository
 {
