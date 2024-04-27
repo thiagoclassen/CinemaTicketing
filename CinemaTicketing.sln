@@ -2,15 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.API", "CinemaTicketing.API\CinemaTicketing.API.csproj", "{B5C113EF-D5B6-4BB4-9438-655EAAFE35A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModellingNotes", "ModellingNotes", "{25E90910-BCB5-4B57-8996-3CCE2BC93624}"
-	ProjectSection(SolutionItems) = preProject
-		modelling.mmd = modelling.mmd
-		requirements.md = requirements.md
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F1E1C41C-C840-4728-86C0-C0F9195C74F1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FEF22D43-A749-479A-A30D-0DFCA69B9FBE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FEF22D43-A749-479A-A30D-0DFCA69B9FBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Domain", "CinemaTicketing.Domain\CinemaTicketing.Domain.csproj", "{F9338438-A11A-4C1D-9A87-0B11E0FD8105}"
 EndProject
@@ -25,6 +19,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Application", "CinemaTicketing.Application\CinemaTicketing.Application.csproj", "{3B32E4F2-0632-40CC-ACF7-001784032366}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Contracts", "CinemaTicketing.Contracts\CinemaTicketing.Contracts.csproj", "{60A66CE0-80A4-4FEB-BB6D-A4940087C007}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0C59BF59-2D28-4E65-99B1-8C95DC2E5FC6}"
+	ProjectSection(SolutionItems) = preProject
+		docs\modelling.mmd = docs\modelling.mmd
+		docs\requirements.md = docs\requirements.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Api.Tests.Unit", "CinemaTicketing.Api.Tests.Unit\CinemaTicketing.Api.Tests.Unit.csproj", "{8E10383E-5799-4602-B5C2-6AC6E3FDA908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Application.Tests.Unit", "CinemaTicketing.Application.Tests.Unit\CinemaTicketing.Application.Tests.Unit.csproj", "{167AB709-F8D6-445B-B954-45D5457082FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +56,14 @@ Global
 		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E10383E-5799-4602-B5C2-6AC6E3FDA908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E10383E-5799-4602-B5C2-6AC6E3FDA908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E10383E-5799-4602-B5C2-6AC6E3FDA908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E10383E-5799-4602-B5C2-6AC6E3FDA908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{167AB709-F8D6-445B-B954-45D5457082FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167AB709-F8D6-445B-B954-45D5457082FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167AB709-F8D6-445B-B954-45D5457082FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167AB709-F8D6-445B-B954-45D5457082FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B5C113EF-D5B6-4BB4-9438-655EAAFE35A9} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
@@ -59,5 +71,7 @@ Global
 		{A02BCCD5-158E-4F8B-AE77-554557BD8886} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 		{3B32E4F2-0632-40CC-ACF7-001784032366} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 		{60A66CE0-80A4-4FEB-BB6D-A4940087C007} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
+		{8E10383E-5799-4602-B5C2-6AC6E3FDA908} = {FEF22D43-A749-479A-A30D-0DFCA69B9FBE}
+		{167AB709-F8D6-445B-B954-45D5457082FE} = {FEF22D43-A749-479A-A30D-0DFCA69B9FBE}
 	EndGlobalSection
 EndGlobal

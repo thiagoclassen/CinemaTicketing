@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaTicketing.API.Controllers;
 
-public class MovieController : ApiController
+public class MoviesController : ApiController
 {
     private readonly ISender _mediator;
 
-    public MovieController(ISender mediator)
+    public MoviesController(ISender mediator)
     {
         _mediator = mediator;
     }
