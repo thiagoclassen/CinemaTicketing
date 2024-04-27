@@ -12,3 +12,13 @@ exclude:
   - name: All
     paths:
       - CinemaTicketing.API\Common\Errors\CinemaTicketingProblemDetailsFactory.cs
+include:
+  - name: PropertyCanBeMadeInitOnly.Global
+  - name: ReplaceAsyncWithTaskReturn
+  - name: ConvertToPrimaryConstructor
+  - name: ConvertClosureToMethodGroup
+  - name: ClassNeverInstantiated.Global
+  - name: UnusedMethodReturnValue.Global
+  - name: UnusedType.Global
+  - name: UnusedMember.Global
+  - name: CA1859
