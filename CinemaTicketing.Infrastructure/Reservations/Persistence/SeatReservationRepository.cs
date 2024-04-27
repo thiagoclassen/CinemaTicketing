@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Interfaces;
+﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Reservations;
 using CinemaTicketing.Infrastructure.Common;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ public class SeatReservationRepository : ISeatReservationRepository
 
     public async Task<SeatReservation?> GetByIdAsync(int seatReservationId, CancellationToken cancellationToken)
     {
-        return await _context.SeatReservations.FindAsync(seatReservationId, cancellationToken);
+        return await _context.SeatReservations.FindAsync([seatReservationId], cancellationToken);
     }
 
     public async Task<List<SeatReservation>> ListByReservationIdAsync(int reservationId,

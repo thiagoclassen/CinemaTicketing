@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Interfaces;
+﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Theaters;
 using CinemaTicketing.Infrastructure.Common;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ public class RoomRepository : IRoomRepository
 
     public async Task<Room?> GetByIdAsync(int roomId, CancellationToken cancellationToken)
     {
-        return await _context.Rooms.FindAsync(roomId);
+        return await _context.Rooms.FindAsync([roomId], cancellationToken);
     }
 
     public async Task ListByTheaterIdAsync(int theaterId, CancellationToken cancellationToken)

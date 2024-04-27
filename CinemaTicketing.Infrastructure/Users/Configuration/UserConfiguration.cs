@@ -1,8 +1,8 @@
-﻿using CinemaTicketing.Domain;
+﻿using CinemaTicketing.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CinemaTicketing.Infrastructure.Users;
+namespace CinemaTicketing.Infrastructure.Users.Configuration;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {

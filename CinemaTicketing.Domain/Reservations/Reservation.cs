@@ -1,17 +1,18 @@
 ﻿using CinemaTicketing.Domain.Screenings;
+using CinemaTicketing.Domain.Users;
 
 namespace CinemaTicketing.Domain.Reservations;
 
 public class Reservation
 {
-    public int Id { get; set; }
-    public bool Confirmed { get; set; }
-    public DateTime ReservedUntil { get; set; }
+    public int Id { get; init; }
+    public required bool Confirmed { get; init; }
+    public required DateTime ReservedUntil { get; init; }
 
     public Guid UserId { get; init; }
     public int ScreeningId { get; init; }
 
-    public User User { get; init; }
-    public Screening Screening { get; set; } = null!;
-    public List<SeatReservation> SeatReservations { get; set; } = new();
+    public User User { get; init; } = null!;
+    public Screening Screening { get; init; } = null!;
+    public List<SeatReservation> SeatReservations { get; set; } = [];
 }

@@ -4,7 +4,6 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>CinemaTicketing</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\CinemaTicketing.Contracts\CinemaTicketing.Contracts.csproj"/>
         <ProjectReference Include="..\CinemaTicketing.Infrastructure\CinemaTicketing.Infrastructure.csproj"/>
     </ItemGroup>
 

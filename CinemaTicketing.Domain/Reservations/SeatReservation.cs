@@ -4,10 +4,10 @@ namespace CinemaTicketing.Domain.Reservations;
 
 public class SeatReservation
 {
-    public int Id { get; set; }
-    public int ReservationId { get; set; }
-    public int SeatId { get; set; }
+    public int Id { get; init; }
+    public int ReservationId { get; init; }
+    public int SeatId { get; init; }
 
-    public Reservation Reservation { get; set; } = null!;
-    public Seat Seat { get; set; } = null!;
+    public Reservation Reservation { get; init; } = null!;
+    public Seat Seat { get; init; } = null!;
 }

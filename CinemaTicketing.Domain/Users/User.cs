@@ -1,16 +1,16 @@
 ﻿using CinemaTicketing.Domain.Reservations;
 
-namespace CinemaTicketing.Domain;
+namespace CinemaTicketing.Domain.Users;
 
 public class User
 {
     public Guid Id { get; set; }
 
-    public string Name { get; set; }
+    public required string Name { get; init; }
 
-    public DateOnly BirthDay { get; set; }
+    public required DateOnly BirthDay { get; init; }
 
-    public string Password { get; set; }
+    public required string Password { get; init; }
 
-    public List<Reservation> Reservations { get; set; } = new();
+    public List<Reservation> Reservations { get; init; } = [];
 }

@@ -1,6 +1,7 @@
-﻿using CinemaTicketing.Application.Interfaces;
+﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Reservations;
 using CinemaTicketing.Infrastructure.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTicketing.Infrastructure.Reservations.Persistence;
 
@@ -21,10 +22,18 @@ public class ReservationRepository : IReservationRepository
 
     public async Task<Reservation?> GetByIdAsync(int reservationId, CancellationToken cancellationToken)
     {
-        return await _context.Reservations.FindAsync(reservationId, cancellationToken);
+        return await _context.Reservations.FindAsync([reservationId], cancellationToken);
     }
 
-    public async Task RemoveAsync(Reservation reservation, CancellationToken cancellationToken)
+    public async Task<List<Reservation?>> GetByUserIdAsync(Guid userId, CancellationToken cancellationToken)
+    {
+        return (await _context
+            .Reservations
+            .Where(r => r.UserId == userId)
+            .ToListAsync(cancellationToken))!;
+    }
+
+    public async Task DeleteAsync(Reservation reservation, CancellationToken cancellationToken)
     {
         _context.Reservations.Remove(reservation);
         await _context.SaveChangesAsync(cancellationToken);

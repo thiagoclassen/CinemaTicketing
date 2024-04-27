@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Interfaces;
+﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Screenings;
 using CinemaTicketing.Infrastructure.Common;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ public class ScreeningRepository : IScreeningRepository
 
     public async Task<Screening?> GetByIdAsync(int screeningId, CancellationToken cancellationToken)
     {
-        return await _context.Screenings.FindAsync(screeningId, cancellationToken);
+        return await _context.Screenings.FindAsync([screeningId], cancellationToken);
     }
 
     public async Task<List<Screening>> ListByRoomAsync(int roomId, CancellationToken cancellationToken)

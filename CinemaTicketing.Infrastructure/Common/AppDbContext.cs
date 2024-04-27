@@ -1,8 +1,8 @@
-﻿using CinemaTicketing.Domain;
-using CinemaTicketing.Domain.Movies;
+﻿using CinemaTicketing.Domain.Movies;
 using CinemaTicketing.Domain.Reservations;
 using CinemaTicketing.Domain.Screenings;
 using CinemaTicketing.Domain.Theaters;
+using CinemaTicketing.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -24,7 +24,7 @@ public class AppDbContext : DbContext
     {
         optionsBuilder
             .UseSqlServer(
-                @"Server=localhost,1433;Database=CinemaTicketing;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=Yes")
+                "Server=localhost,1433;Database=CinemaTicketing;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=Yes")
             .LogTo(Console.WriteLine,
                 new[] { DbLoggerCategory.Database.Command.Name },
                 LogLevel.Information)

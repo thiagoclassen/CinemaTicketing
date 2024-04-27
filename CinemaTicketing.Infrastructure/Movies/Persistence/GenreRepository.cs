@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Interfaces;
+﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Movies;
 using CinemaTicketing.Infrastructure.Common;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ public class GenreRepository : IGenreRepository
 
     public async Task<Genre?> GetByIdAsync(int genreId, CancellationToken cancellationToken)
     {
-        return await _context.Genres.FindAsync(genreId, cancellationToken);
+        return await _context.Genres.FindAsync([genreId], cancellationToken);
     }
 
     public async Task<List<Genre>> ListAsync(CancellationToken cancellationToken)

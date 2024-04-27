@@ -2,9 +2,9 @@
 
 public class Theater
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Address { get; set; }
+    public int Id { get; init; }
+    public required string Name { get; init; }
+    public required string Address { get; init; }
 
-    public List<Room> Rooms { get; set; } = new();
+    public List<Room> Rooms { get; init; } = [];
 }

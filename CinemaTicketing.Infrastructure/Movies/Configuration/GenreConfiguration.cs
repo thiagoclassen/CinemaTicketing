@@ -11,6 +11,5 @@ public class GenreConfiguration : IEntityTypeConfiguration<Genre>
         builder.ToTable("Genres", "movie");
 
         builder.HasKey(g => g.Id);
-        builder.Property(g => g.Id).ValueGeneratedNever();
     }
 }

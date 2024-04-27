@@ -1,5 +1,5 @@
-﻿using CinemaTicketing.Application.Interfaces;
-using CinemaTicketing.Domain;
+﻿using CinemaTicketing.Application.Common.Interfaces;
+using CinemaTicketing.Domain.Users;
 using CinemaTicketing.Infrastructure.Common;
 
 namespace CinemaTicketing.Infrastructure.Users.Persistence;
@@ -21,7 +21,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetByIdAsync(int userId, CancellationToken cancellationToken)
     {
-        return await _context.Users.FindAsync(userId, cancellationToken);
+        return await _context.Users.FindAsync([userId], cancellationToken);
     }
 
     public async Task RemoveAsync(User user, CancellationToken cancellationToken)

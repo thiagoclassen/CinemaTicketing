@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Interfaces;
+﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Infrastructure.Common;
 using CinemaTicketing.Infrastructure.Movies.Persistence;
 using CinemaTicketing.Infrastructure.Reservations.Persistence;
@@ -13,10 +13,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services
-            .AddPersistence();
-
-        return services;
+        return services.AddPersistence();
     }
 
     private static IServiceCollection AddPersistence(this IServiceCollection services)

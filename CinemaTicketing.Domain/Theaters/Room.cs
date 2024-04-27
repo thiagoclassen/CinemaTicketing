@@ -9,7 +9,7 @@ public class Room
     public int Rows { get; set; }
     public int Columns { get; set; }
 
-    public int TheaterId { get; set; } = new();
-    public List<Seat> Seats { get; set; } = new();
-    public List<Screening> Screenings { get; set; } = new();
+    public int TheaterId { get; set; }
+    public List<Seat> Seats { get; set; } = [];
+    public List<Screening> Screenings { get; set; } = [];
 }

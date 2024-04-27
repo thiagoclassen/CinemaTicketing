@@ -11,7 +11,6 @@ public class MovieConfiguration : IEntityTypeConfiguration<Movie>
         builder.ToTable("Movies", "movie");
 
         builder.HasKey(m => m.Id);
-        builder.Property(m => m.Id).ValueGeneratedNever();
 
         builder
             .HasMany(m => m.Genres)

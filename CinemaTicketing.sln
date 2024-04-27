@@ -19,9 +19,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9386EA75-1F5E-4AED-93B2-35DD914792F3}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose-db.yml = docker-compose-db.yml
+		qodana.yaml = qodana.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Application", "CinemaTicketing.Application\CinemaTicketing.Application.csproj", "{3B32E4F2-0632-40CC-ACF7-001784032366}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Contracts", "CinemaTicketing.Contracts\CinemaTicketing.Contracts.csproj", "{60A66CE0-80A4-4FEB-BB6D-A4940087C007}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,11 +48,16 @@ Global
 		{3B32E4F2-0632-40CC-ACF7-001784032366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B32E4F2-0632-40CC-ACF7-001784032366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B32E4F2-0632-40CC-ACF7-001784032366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A66CE0-80A4-4FEB-BB6D-A4940087C007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B5C113EF-D5B6-4BB4-9438-655EAAFE35A9} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 		{F9338438-A11A-4C1D-9A87-0B11E0FD8105} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 		{A02BCCD5-158E-4F8B-AE77-554557BD8886} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 		{3B32E4F2-0632-40CC-ACF7-001784032366} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
+		{60A66CE0-80A4-4FEB-BB6D-A4940087C007} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 	EndGlobalSection
 EndGlobal
