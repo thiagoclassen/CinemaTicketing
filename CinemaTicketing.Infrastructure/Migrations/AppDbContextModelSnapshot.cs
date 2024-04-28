@@ -65,6 +65,9 @@ namespace CinemaTicketing.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("YearOfRelease")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Movies", "movie");

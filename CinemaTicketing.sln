@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Api.Tests.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Application.Tests.Unit", "CinemaTicketing.Application.Tests.Unit\CinemaTicketing.Application.Tests.Unit.csproj", "{167AB709-F8D6-445B-B954-45D5457082FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Tests.Utils", "CinemaTicketing.Tests.Utils\CinemaTicketing.Tests.Utils.csproj", "{3D16C27C-4918-4A2F-BDDD-7FB47D19EA47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicketing.Tests.Integration", "CinemaTicketing.Tests.Integration\CinemaTicketing.Tests.Integration.csproj", "{4647DFF6-872A-43CD-AE2B-131063194944}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,14 @@ Global
 		{167AB709-F8D6-445B-B954-45D5457082FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{167AB709-F8D6-445B-B954-45D5457082FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{167AB709-F8D6-445B-B954-45D5457082FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D16C27C-4918-4A2F-BDDD-7FB47D19EA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D16C27C-4918-4A2F-BDDD-7FB47D19EA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D16C27C-4918-4A2F-BDDD-7FB47D19EA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D16C27C-4918-4A2F-BDDD-7FB47D19EA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4647DFF6-872A-43CD-AE2B-131063194944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4647DFF6-872A-43CD-AE2B-131063194944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4647DFF6-872A-43CD-AE2B-131063194944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4647DFF6-872A-43CD-AE2B-131063194944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B5C113EF-D5B6-4BB4-9438-655EAAFE35A9} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
@@ -73,5 +85,7 @@ Global
 		{60A66CE0-80A4-4FEB-BB6D-A4940087C007} = {F1E1C41C-C840-4728-86C0-C0F9195C74F1}
 		{8E10383E-5799-4602-B5C2-6AC6E3FDA908} = {FEF22D43-A749-479A-A30D-0DFCA69B9FBE}
 		{167AB709-F8D6-445B-B954-45D5457082FE} = {FEF22D43-A749-479A-A30D-0DFCA69B9FBE}
+		{3D16C27C-4918-4A2F-BDDD-7FB47D19EA47} = {FEF22D43-A749-479A-A30D-0DFCA69B9FBE}
+		{4647DFF6-872A-43CD-AE2B-131063194944} = {FEF22D43-A749-479A-A30D-0DFCA69B9FBE}
 	EndGlobalSection
 EndGlobal

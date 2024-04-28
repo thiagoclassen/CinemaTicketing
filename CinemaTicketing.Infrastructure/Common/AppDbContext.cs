@@ -20,6 +20,13 @@ public class AppDbContext : DbContext
     public DbSet<Reservation> Reservations { get; set; } = null!;
     public DbSet<SeatReservation> SeatReservations { get; set; } = null!;
 
+    public AppDbContext()
+    {
+    }
+
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder

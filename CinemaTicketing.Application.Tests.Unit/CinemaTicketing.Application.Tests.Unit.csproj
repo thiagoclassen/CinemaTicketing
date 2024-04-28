@@ -24,6 +24,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CinemaTicketing.Application\CinemaTicketing.Application.csproj"/>
+        <ProjectReference Include="..\CinemaTicketing.Tests.Utils\CinemaTicketing.Tests.Utils.csproj"/>
     </ItemGroup>
 
 </Project>

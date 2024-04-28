@@ -1,7 +1,7 @@
 using CinemaTicketing.API.Controllers;
-using CinemaTicketing.Api.Tests.Unit.Utils;
 using CinemaTicketing.Application.Movies.Commands;
 using CinemaTicketing.Domain.Movies;
+using CinemaTicketing.Tests.Utils;
 using ErrorOr;
 using FluentAssertions;
 using MediatR;

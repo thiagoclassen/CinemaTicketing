@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaTicketing.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240427030949_InitialMigration")]
+    [Migration("20240427233858_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -67,6 +67,9 @@ namespace CinemaTicketing.Infrastructure.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("YearOfRelease")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

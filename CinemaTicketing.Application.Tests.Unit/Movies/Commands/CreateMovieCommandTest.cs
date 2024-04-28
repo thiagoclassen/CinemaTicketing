@@ -1,6 +1,7 @@
 using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Application.Movies.Commands;
 using CinemaTicketing.Domain.Movies;
+using CinemaTicketing.Tests.Utils;
 using FluentAssertions;
 using NSubstitute;
 
@@ -20,31 +21,10 @@ public class CreateMovieCommandTest
     public async Task Handle_ShouldReturnMovie_WhenValid()
     {
         // Arrange
-        var createMovieCommand = new CreateMovieCommand(
-            "The Matrix",
-            "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-            1999,
-            "Lana Wachowski, Lilly Wachowski",
-            120,
-            15,
-            new List<Genre>
-            {
-                new() { GenreName = "Action" },
-                new() { GenreName = "Sci-Fi" }
-            }
-        );
-        var movie = new Movie
-        {
-            Id = 0,
-            Title = createMovieCommand.Title,
-            Description = createMovieCommand.Description,
-            YearOfRelease = createMovieCommand.YearOfRelease,
-            Director = createMovieCommand.Director,
-            Duration = createMovieCommand.Duration,
-            AgeRestriction = createMovieCommand.AgeRestriction,
-            Genres = createMovieCommand.Genres
-        };
+        var createMovieCommand = MoviesUtils.GetMovieCommand();
+        var movie = MoviesUtils.GetMovie(createMovieCommand);
         _movieRepository.AddAsync(movie, Arg.Any<CancellationToken>()).Returns(Task.CompletedTask);
+        
         // Act
         var result = await _handler.Handle(createMovieCommand, CancellationToken.None);
 
