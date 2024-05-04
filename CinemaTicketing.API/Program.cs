@@ -25,12 +25,14 @@ if (app.Environment.IsDevelopment())
 
 app.Services.ApplyMigrations();
 
-if (app.Environment.IsStaging())
-    app.Services.EnsureTestDbIsCreated();
-
 app.UseExceptionHandler("/error");
 app.UseHsts();
 app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
+
+// Required for the WebApplicationFactory in the integration tests
+public partial class Program
+{
+}

@@ -27,11 +27,10 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
-    
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(
-                "Server=localhost,1433;Database=CinemaTicketing;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=Yes")
+        optionsBuilder
             .LogTo(Console.WriteLine,
                 new[] { DbLoggerCategory.Database.Command.Name },
                 LogLevel.Information)
@@ -41,7 +40,7 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
-        
+
         base.OnModelCreating(modelBuilder);
     }
 }

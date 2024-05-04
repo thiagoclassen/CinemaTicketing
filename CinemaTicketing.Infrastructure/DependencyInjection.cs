@@ -5,6 +5,7 @@ using CinemaTicketing.Infrastructure.Reservations.Persistence;
 using CinemaTicketing.Infrastructure.Screenings.Persistence;
 using CinemaTicketing.Infrastructure.Theaters.Persistence;
 using CinemaTicketing.Infrastructure.Users.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CinemaTicketing.Infrastructure;
@@ -18,7 +19,11 @@ public static class DependencyInjection
 
     private static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        services.AddDbContext<AppDbContext>();
+        services.AddDbContext<AppDbContext>(options =>
+        {
+            options.UseSqlServer(
+                "Server=localhost,1433;Database=CinemaTicketing;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=Yes");
+        });
 
         services.AddScoped<IReservationRepository, ReservationRepository>();
         services.AddScoped<ISeatReservationRepository, SeatReservationRepository>();

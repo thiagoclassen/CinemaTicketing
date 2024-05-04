@@ -9,8 +9,7 @@ using FluentAssertions;
 
 namespace CinemaTicketing.Tests.Integration.MovieController;
 
-[Collection(nameof(IntegrationTestsCollection))]
-public class GetMovieTest
+public class GetMovieTest : IClassFixture<MovieApiFactory>
 {
     private readonly HttpClient _httpClient;
 

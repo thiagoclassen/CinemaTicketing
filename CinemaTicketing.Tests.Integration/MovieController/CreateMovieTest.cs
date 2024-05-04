@@ -9,8 +9,7 @@ using FluentAssertions;
 
 namespace CinemaTicketing.Tests.Integration.MovieController;
 
-[Collection(nameof(IntegrationTestsCollection))]
-public class CreateMovieTest
+public class CreateMovieTest : IClassFixture<MovieApiFactory>
 {
     private readonly HttpClient _httpClient;
 
@@ -33,14 +32,14 @@ public class CreateMovieTest
             .PostAsync(ApiEndpoints.Movies.Create, content);
 
         // Assert
+        result.StatusCode.Should().Be(HttpStatusCode.Created);
+
         var contentResponse = await result.Content.ReadAsStringAsync();
         var movieResponse = JsonSerializer
             .Deserialize<MovieResponse>(
                 contentResponse,
                 MovieConstants.GetJsonSerializerOptions()
             );
-
-        result.StatusCode.Should().Be(HttpStatusCode.Created);
         movieResponse.Should().BeOfType<MovieResponse>();
         movieResponse!.Id.Should().BeGreaterThan(0);
     }
