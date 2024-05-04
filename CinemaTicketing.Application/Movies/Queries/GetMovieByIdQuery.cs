@@ -1,13 +1,13 @@
 ﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Movies;
-using FluentValidation;
+using ErrorOr;
 using MediatR;
 
 namespace CinemaTicketing.Application.Movies.Queries;
 
-public record GetMovieByIdQuery(int Id) : IRequest<Movie?>;
+public record GetMovieByIdQuery(int Id) : IRequest<ErrorOr<Movie?>>;
 
-public class GetMovieByIdQueryHandler : IRequestHandler<GetMovieByIdQuery, Movie?>
+public class GetMovieByIdQueryHandler : IRequestHandler<GetMovieByIdQuery, ErrorOr<Movie?>>
 {
     private readonly IMovieRepository _movieRepository;
 
@@ -16,19 +16,8 @@ public class GetMovieByIdQueryHandler : IRequestHandler<GetMovieByIdQuery, Movie
         _movieRepository = movieRepository;
     }
 
-    public async Task<Movie?> Handle(GetMovieByIdQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Movie?>> Handle(GetMovieByIdQuery request, CancellationToken cancellationToken)
     {
         return await _movieRepository.GetByIdAsync(request.Id, cancellationToken);
-    }
-}
-
-public class GetMovieByIdQueryValidator : AbstractValidator<GetMovieByIdQuery>
-{
-    public GetMovieByIdQueryValidator()
-    {
-        RuleFor(x => x.Id)
-            .NotEmpty()
-            .NotNull()
-            .GreaterThan(0);
     }
 }

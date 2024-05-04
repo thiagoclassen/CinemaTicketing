@@ -1,7 +1,8 @@
 using CinemaTicketing.API.Controllers;
 using CinemaTicketing.Application.Movies.Commands;
+using CinemaTicketing.Contracts.Movies.Response;
 using CinemaTicketing.Domain.Movies;
-using CinemaTicketing.Tests.Utils;
+using CinemaTicketing.Tests.Utils.Movies;
 using ErrorOr;
 using FluentAssertions;
 using MediatR;
@@ -24,8 +25,8 @@ public class MoviesControllerTests
     public async Task Create_ShouldReturnCreatedAtAction_WhenValidRequest()
     {
         // Arrange
-        var createMovieRequest = MoviesUtils.GetMovieRequest();
-        var movie = MoviesUtils.GetMovie(createMovieRequest);
+        var createMovieRequest = MovieConstants.GetValidMovieRequest();
+        var movie = MovieConstants.GetMovie(createMovieRequest);
 
         _mediator.Send(Arg.Any<CreateMovieCommand>(), Arg.Any<CancellationToken>())
             .Returns(movie.ToErrorOr());
@@ -34,8 +35,9 @@ public class MoviesControllerTests
         var result = (CreatedAtActionResult)await _controller.Create(createMovieRequest, CancellationToken.None);
 
         // Assert
+        var movieResponse = (MovieResponse)result.Value!;
         result.StatusCode.Should().Be(201);
-        result.Value.Should().BeEquivalentTo(movie);
+        movieResponse.ValidateCreation(createMovieRequest);
         result.ActionName.Should().Be(nameof(_controller.Create));
     }
 
@@ -43,7 +45,7 @@ public class MoviesControllerTests
     public async Task Create_ShouldReturnError_WhenInvalidRequest()
     {
         // Arrange
-        var createMovieRequest = MoviesUtils.GetMovieRequest();
+        var createMovieRequest = MovieConstants.GetValidMovieRequest();
 
         _mediator.Send(Arg.Any<CreateMovieCommand>(),
             Arg.Any<CancellationToken>()

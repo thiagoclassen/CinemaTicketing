@@ -1,13 +1,13 @@
 ﻿using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Domain.Movies;
+using ErrorOr;
 using MediatR;
 
 namespace CinemaTicketing.Application.Movies.Queries;
 
-// TODO - Double check this...
-public record ListMoviesQuery : IRequest<List<Movie>>;
+public record ListMoviesQuery : IRequest<ErrorOr<List<Movie>>>;
 
-public class ListmoviesQueryHandler : IRequestHandler<ListMoviesQuery, List<Movie>>
+public class ListmoviesQueryHandler : IRequestHandler<ListMoviesQuery, ErrorOr<List<Movie>>>
 {
     private readonly IMovieRepository _movieRepository;
 
@@ -16,7 +16,7 @@ public class ListmoviesQueryHandler : IRequestHandler<ListMoviesQuery, List<Movi
         _movieRepository = movieRepository;
     }
 
-    public async Task<List<Movie>> Handle(ListMoviesQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<List<Movie>>> Handle(ListMoviesQuery request, CancellationToken cancellationToken)
     {
         return await _movieRepository.ListAsync(cancellationToken);
     }

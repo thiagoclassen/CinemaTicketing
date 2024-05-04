@@ -1,12 +1,13 @@
-﻿using CinemaTicketing.Application.Movies.Commands;
-using CinemaTicketing.Contracts.Movies;
+﻿using System.Text.Json;
+using CinemaTicketing.Application.Movies.Commands;
+using CinemaTicketing.Contracts.Movies.Request;
 using CinemaTicketing.Domain.Movies;
 
-namespace CinemaTicketing.Tests.Utils;
+namespace CinemaTicketing.Tests.Utils.Movies;
 
-public static class MoviesUtils
+public static class MovieConstants
 {
-    public static CreateMovieRequest GetMovieRequest()
+    public static CreateMovieRequest GetValidMovieRequest()
     {
         return new CreateMovieRequest
         {
@@ -21,6 +22,45 @@ public static class MoviesUtils
             [
                 new Genre { GenreName = "Action" },
                 new Genre { GenreName = "Sci-Fi" }
+            ]
+        };
+    }
+
+    public static CreateMovieRequest GetInvalidMovieRequest()
+    {
+        return new CreateMovieRequest
+        {
+            Title = "",
+            Description =
+                "",
+            YearOfRelease = 0,
+            Director = "Lana Wachowski, Lilly Wachowski",
+            Duration = 0,
+            AgeRestriction = 15,
+            Genres =
+            [
+                new Genre { GenreName = "Action" },
+                new Genre { GenreName = "Sci-Fi" }
+            ]
+        };
+    }
+
+    public static UpdateMovieRequest GetUpdateMovieRequest()
+    {
+        return new UpdateMovieRequest
+        {
+            Title = "The Matrix 4",
+            Description =
+                "A terrible movie...",
+            YearOfRelease = 2023,
+            Director = "Lana Wachowski, Lilly Wachowski",
+            Duration = 150,
+            AgeRestriction = 15,
+            Genres =
+            [
+                new Genre { GenreName = "Action" },
+                new Genre { GenreName = "Sci-Fi" },
+                new Genre { GenreName = "Comedy" }
             ]
         };
     }
@@ -69,5 +109,13 @@ public static class MoviesUtils
                 new Genre { GenreName = "Sci-Fi" }
             ]
         );
+    }
+
+    public static JsonSerializerOptions GetJsonSerializerOptions()
+    {
+        return new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
     }
 }

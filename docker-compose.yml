@@ -1,0 +1,6 @@
+﻿services:
+  cinematicketing.api:
+    image: cinematicketing.api
+    build:
+      context: .
+      dockerfile: CinemaTicketing.API/Dockerfile

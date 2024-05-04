@@ -8,20 +8,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Testcontainers.MsSql;
 
-namespace CinemaTicketing.Tests.Integration.MovieController;
+namespace CinemaTicketing.Tests.Integration;
 
 public class MovieApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLifetime
 {
+    private const int TestDbPort = 1433;
+
     private readonly MsSqlContainer _dbContainer =
         new MsSqlBuilder()
             .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
             .WithPassword("yourStrong(!)Password")
             .WithEnvironment("ACCEPT_EULA", "Y")
-            .WithPortBinding(1433)
+            .WithPortBinding(TestDbPort)
             .WithName("test-cinema-ticketing")
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(1433))
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(TestDbPort))
             .Build();
-
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {

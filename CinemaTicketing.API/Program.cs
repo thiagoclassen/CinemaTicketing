@@ -1,8 +1,8 @@
 using CinemaTicketing.API;
 using CinemaTicketing.API.Common.Errors;
+using CinemaTicketing.API.Extensions;
 using CinemaTicketing.Application;
 using CinemaTicketing.Infrastructure;
-using CinemaTicketing.Infrastructure.Common;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +23,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-if (app.Environment.IsStaging()) app.Services.GetService<AppDbContext>()?.Database.EnsureCreated();
+app.Services.ApplyMigrations();
+
+if (app.Environment.IsStaging())
+    app.Services.EnsureTestDbIsCreated();
 
 app.UseExceptionHandler("/error");
 app.UseHsts();

@@ -1,12 +1,13 @@
 ﻿using CinemaTicketing.Application.Common.Interfaces;
-using FluentValidation;
+using CinemaTicketing.Domain.Common.Errors;
+using ErrorOr;
 using MediatR;
 
 namespace CinemaTicketing.Application.Movies.Commands;
 
-public record DeleteMovieCommand(int Id) : IRequest;
+public record DeleteMovieCommand(int Id) : IRequest<ErrorOr<int>>;
 
-public class DeleteMovieCommandHandler : IRequestHandler<DeleteMovieCommand>
+public class DeleteMovieCommandHandler : IRequestHandler<DeleteMovieCommand, ErrorOr<int>>
 {
     private readonly IMovieRepository _movieRepository;
 
@@ -15,25 +16,13 @@ public class DeleteMovieCommandHandler : IRequestHandler<DeleteMovieCommand>
         _movieRepository = movieRepository;
     }
 
-    public async Task Handle(DeleteMovieCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<int>> Handle(DeleteMovieCommand request, CancellationToken cancellationToken)
     {
         var movie = await _movieRepository.GetByIdAsync(request.Id, cancellationToken);
 
-        // TODO - create custom exception
         if (movie is null)
-            throw new Exception("Invalid movie Id.");
+            return Errors.Movies.InvalidId;
 
-        await _movieRepository.DeleteAsync(movie, cancellationToken);
-    }
-}
-
-public class DeleteMovieCommandValidator : AbstractValidator<DeleteMovieCommand>
-{
-    public DeleteMovieCommandValidator()
-    {
-        RuleFor(x => x.Id)
-            .NotEmpty()
-            .NotNull()
-            .GreaterThan(0);
+        return await _movieRepository.DeleteAsync(movie, cancellationToken);
     }
 }

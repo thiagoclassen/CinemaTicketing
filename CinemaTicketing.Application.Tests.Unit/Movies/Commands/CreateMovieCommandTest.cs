@@ -1,7 +1,7 @@
 using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Application.Movies.Commands;
 using CinemaTicketing.Domain.Movies;
-using CinemaTicketing.Tests.Utils;
+using CinemaTicketing.Tests.Utils.Movies;
 using FluentAssertions;
 using NSubstitute;
 
@@ -21,8 +21,8 @@ public class CreateMovieCommandTest
     public async Task Handle_ShouldReturnMovie_WhenValid()
     {
         // Arrange
-        var createMovieCommand = MoviesUtils.GetMovieCommand();
-        var movie = MoviesUtils.GetMovie(createMovieCommand);
+        var createMovieCommand = MovieConstants.GetMovieCommand();
+        var movie = MovieConstants.GetMovie(createMovieCommand);
         _movieRepository.AddAsync(movie, Arg.Any<CancellationToken>()).Returns(Task.CompletedTask);
         
         // Act

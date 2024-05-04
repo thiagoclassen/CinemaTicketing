@@ -1,4 +1,9 @@
 ﻿using CinemaTicketing.Application.Common.Interfaces;
+using CinemaTicketing.Application.Movies.Mapping;
+using CinemaTicketing.Contracts.Movies.Response;
+using CinemaTicketing.Domain.Common.Errors;
+using CinemaTicketing.Domain.Movies;
+using ErrorOr;
 using FluentValidation;
 using MediatR;
 
@@ -8,12 +13,14 @@ public record UpdateMovieCommand(
     int Id,
     string Title,
     string Description,
+    int YearOfRelease,
     string Director,
     int Duration,
-    int AgeRestriction
-) : IRequest;
+    int AgeRestriction,
+    List<Genre> Genres
+) : IRequest<ErrorOr<MovieResponse>>;
 
-public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand>
+public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand, ErrorOr<MovieResponse>>
 {
     private readonly IMovieRepository _movieRepository;
 
@@ -22,21 +29,17 @@ public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand>
         _movieRepository = movieRepository;
     }
 
-    public async Task Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<MovieResponse>> Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
     {
-        var movie = await _movieRepository.GetByIdAsync(request.Id, cancellationToken);
+        var exists = await _movieRepository.ExistsAsync(request.Id, cancellationToken);
 
-        // TODO - create custom exception
-        if (movie is null)
-            throw new Exception("Movie not found.");
+        if (!exists) return Errors.Movies.InvalidId;
 
-        // movie.Title = request.Title};
-        // movie.Description = request.Description;
-        // movie.Director = request.Director;
-        // movie.Duration = request.Duration;
-        // movie.AgeRestriction = request.AgeRestriction;
-
+        var movie = request.MapToMovie();
+        
         await _movieRepository.UpdateAsync(movie, cancellationToken);
+
+        return movie.MapToMovieResponse();
     }
 }
 

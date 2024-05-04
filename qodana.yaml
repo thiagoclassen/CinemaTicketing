@@ -12,6 +12,12 @@ exclude:
   - name: All
     paths:
       - CinemaTicketing.API\Common\Errors\CinemaTicketingProblemDetailsFactory.cs
+  - name: ClassNeverInstantiated.Global
+    paths:
+      - CinemaTicketing.Tests.Integration\MovieController
+  - name: RedundantTypeDeclarationBody
+    paths:
+      - CinemaTicketing.API\IApiMarker.cs
 include:
   - name: PropertyCanBeMadeInitOnly.Global
   - name: ReplaceAsyncWithTaskReturn

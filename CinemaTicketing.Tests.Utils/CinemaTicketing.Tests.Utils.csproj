@@ -11,4 +11,8 @@
         <ProjectReference Include="..\CinemaTicketing.Contracts\CinemaTicketing.Contracts.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="6.12.0"/>
+    </ItemGroup>
+
 </Project>

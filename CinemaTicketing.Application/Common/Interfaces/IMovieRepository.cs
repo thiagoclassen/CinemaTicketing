@@ -9,4 +9,5 @@ public interface IMovieRepository
     Task<List<Movie>> ListAsync(CancellationToken cancellationToken);
     Task<int> DeleteAsync(Movie movie, CancellationToken cancellationToken);
     Task UpdateAsync(Movie movie, CancellationToken cancellationToken);
+    Task<bool> ExistsAsync(int movieId, CancellationToken cancellationToken);
 }

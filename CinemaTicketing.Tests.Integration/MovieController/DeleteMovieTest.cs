@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using System.Net.Mime;
 using System.Text;
 using System.Text.Json;
@@ -10,17 +10,17 @@ using FluentAssertions;
 namespace CinemaTicketing.Tests.Integration.MovieController;
 
 [Collection(nameof(IntegrationTestsCollection))]
-public class CreateMovieTest
+public class DeleteMovieTest
 {
     private readonly HttpClient _httpClient;
 
-    public CreateMovieTest(MovieApiFactory appFactory)
+    public DeleteMovieTest(MovieApiFactory appFactory)
     {
         _httpClient = appFactory.CreateClient();
     }
 
     [Fact]
-    public async Task Create_ShouldAddMovie_WhenRequestIsValid()
+    public async Task Delete_ShouldDeleteMovie_WhenMovieExists()
     {
         // Arrange
         var movieRequest = MovieConstants.GetValidMovieRequest();
@@ -28,37 +28,43 @@ public class CreateMovieTest
             JsonSerializer.Serialize(movieRequest),
             Encoding.UTF8,
             MediaTypeNames.Application.Json);
-        // Act
-        var result = await _httpClient
+        var createResult = await _httpClient
             .PostAsync(ApiEndpoints.Movies.Create, content);
-
-        // Assert
-        var contentResponse = await result.Content.ReadAsStringAsync();
+        var contentResponse = await createResult.Content.ReadAsStringAsync();
         var movieResponse = JsonSerializer
             .Deserialize<MovieResponse>(
                 contentResponse,
                 MovieConstants.GetJsonSerializerOptions()
             );
 
-        result.StatusCode.Should().Be(HttpStatusCode.Created);
-        movieResponse.Should().BeOfType<MovieResponse>();
-        movieResponse!.Id.Should().BeGreaterThan(0);
+        var url = GetMovieUrl(movieResponse!.Id);
+
+        // Act
+        var deleteResult = await _httpClient
+            .DeleteAsync(url);
+
+        // Assert
+        deleteResult.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
     [Fact]
-    public async Task Create_ShouldReturnError_WhenRequestIsInvalid()
+    public async Task Delete_ShouldReturnNoContent_WhenMovieDoesNotExist()
     {
         // Arrange
-        var movieRequest = MovieConstants.GetInvalidMovieRequest();
-        var content = new StringContent(
-            JsonSerializer.Serialize(movieRequest),
-            Encoding.UTF8,
-            MediaTypeNames.Application.Json);
+        var url = GetMovieUrl(999);
+
         // Act
-        var result = await _httpClient
-            .PostAsync(ApiEndpoints.Movies.Create, content);
+        var deleteResult = await _httpClient
+            .DeleteAsync(url);
 
         // Assert
-        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        deleteResult.StatusCode.Should().Be(HttpStatusCode.NotFound);
+    }
+
+    private static string GetMovieUrl(int id)
+    {
+        return ApiEndpoints.Movies
+            .Delete
+            .Replace("{id:int}", id.ToString());
     }
 }

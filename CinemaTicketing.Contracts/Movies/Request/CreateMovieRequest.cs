@@ -1,6 +1,6 @@
 ﻿using CinemaTicketing.Domain.Movies;
 
-namespace CinemaTicketing.Contracts.Movies;
+namespace CinemaTicketing.Contracts.Movies.Request;
 
 public class CreateMovieRequest
 {
