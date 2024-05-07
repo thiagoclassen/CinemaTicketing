@@ -31,8 +31,8 @@ public class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(
-                "Server=localhost,1433;Database=CinemaTicketing;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=Yes")
+            // .UseSqlServer(
+            //     "Server=localhost,1433;Database=CinemaTicketing;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=Yes")
             .LogTo(Console.WriteLine,
                 new[] { DbLoggerCategory.Database.Command.Name },
                 LogLevel.Information)
