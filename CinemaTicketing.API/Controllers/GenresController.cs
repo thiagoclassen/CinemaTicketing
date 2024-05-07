@@ -15,7 +15,7 @@ public class GenresController : ApiController
     }
 
     [HttpGet(ApiEndpoints.Genres.Get)]
-    public async Task<IActionResult> GetGenresById(int id, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetGenreById(int id, CancellationToken cancellationToken)
     {
         var command = new GetGenreByIdQuery(id);
         var result = await _mediator.Send(command, cancellationToken);
@@ -26,7 +26,7 @@ public class GenresController : ApiController
     }
 
     [HttpGet(ApiEndpoints.Genres.GetAll)]
-    public async Task<IActionResult> GetGenres(CancellationToken cancellationToken)
+    public async Task<IActionResult> ListGenres(CancellationToken cancellationToken)
     {
         var command = new ListGenresQuery();
         var result = await _mediator.Send(command, cancellationToken);

@@ -11,14 +11,4 @@ public static class Common
         var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         context.Database.Migrate();
     }
-
-    public static void EnsureTestDbIsCreated(this IServiceProvider serviceProvider)
-    {
-        serviceProvider
-            .CreateScope()
-            .ServiceProvider
-            .GetRequiredService<AppDbContext>()?
-            .Database
-            .EnsureCreated();
-    }
 }

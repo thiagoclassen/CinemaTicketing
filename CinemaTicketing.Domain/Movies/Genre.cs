@@ -1,4 +1,5 @@
-﻿namespace CinemaTicketing.Domain.Movies;
+﻿// ReSharper disable UnusedMember.Local
+namespace CinemaTicketing.Domain.Movies;
 
 public class Genre
 {

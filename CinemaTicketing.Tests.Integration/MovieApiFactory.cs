@@ -9,6 +9,7 @@ using Testcontainers.MsSql;
 
 namespace CinemaTicketing.Tests.Integration;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 public class MovieApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
     private const int ContainerDbPort = 1433;

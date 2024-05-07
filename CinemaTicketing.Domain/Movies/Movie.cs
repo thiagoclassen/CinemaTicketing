@@ -12,11 +12,7 @@ public partial class Movie
     public string Slug
     {
         get => GenerateSlug();
-        init
-        {
-            _slug = value;
-            GenerateSlug();
-        }
+        init => _slug = value;
     }
 
     public required string Description { get; set; }

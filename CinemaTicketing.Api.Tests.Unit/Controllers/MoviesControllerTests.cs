@@ -92,7 +92,7 @@ public class MoviesControllerTests
 
         _mediator.Send(Arg.Any<GetMovieByIdQuery>(),
             Arg.Any<CancellationToken>()
-        )!.Returns(errorResponse);
+        ).Returns(errorResponse);
 
         // Act
         var result = await _controller.GetMovieById(movieId, CancellationToken.None);
@@ -109,7 +109,7 @@ public class MoviesControllerTests
 
         _mediator.Send(Arg.Any<ListMoviesQuery>(),
             Arg.Any<CancellationToken>()
-        )!.Returns(movies.ToErrorOr());
+        ).Returns(movies.ToErrorOr());
 
         // Act
         var result = (ObjectResult)await _controller.GetAllMovies(CancellationToken.None);
@@ -126,7 +126,7 @@ public class MoviesControllerTests
         // Arrange
         _mediator.Send(Arg.Any<ListMoviesQuery>(),
             Arg.Any<CancellationToken>()
-        )!.Returns(new List<Movie>().ToErrorOr());
+        ).Returns(new List<Movie>().ToErrorOr());
 
         // Act
         var result = (ObjectResult)await _controller.GetAllMovies(CancellationToken.None);

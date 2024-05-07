@@ -60,8 +60,8 @@ public class UpdateMovieTest : IClassFixture<MovieApiFactory>
             );
 
         movieUpdateResponse.Should().BeOfType<MovieResponse>();
-        movieUpdateResponse!.Id.Should().Be(movieResponse!.Id);
-        movieUpdateResponse!.Title.Should().Be(updateMovieRequest.Title);
+        movieUpdateResponse!.Id.Should().Be(movieResponse.Id);
+        movieUpdateResponse.Title.Should().Be(updateMovieRequest.Title);
     }
 
     [Fact]

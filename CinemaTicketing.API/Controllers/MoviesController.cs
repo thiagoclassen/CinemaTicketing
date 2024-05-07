@@ -38,8 +38,7 @@ public class MoviesController : ApiController
 
         return result.Match(
             _ => result.Value is null ? NoContent() : Ok(result.Value.MapToMovieResponse()),
-            errors => Problem(errors)
-        );
+            errors => Problem(errors));
     }
 
     [HttpGet(ApiEndpoints.Movies.GetAll)]

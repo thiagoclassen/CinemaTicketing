@@ -32,7 +32,8 @@ app.MapControllers();
 
 app.Run();
 
-// Required for the WebApplicationFactory in the integration tests
+// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Program
 {
+    // Required for the WebApplicationFactory in the integration tests
 }

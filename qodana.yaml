@@ -28,3 +28,5 @@ include:
   - name: UnusedType.Global
   - name: UnusedMember.Global
   - name: CA1859
+  - name: ConvertToConstant.Local
+  - name: CA1861
