@@ -20,6 +20,6 @@ public static class MovieExtensionValidators
             .Genres
             .Zip(createMovieRequest.Genres)
             .ToList()
-            .ForEach(pair => pair.First.Should().BeSameAs(pair.Second.GenreName));
+            .ForEach(pair => pair.First.Should().Be(pair.Second));
     }
 }

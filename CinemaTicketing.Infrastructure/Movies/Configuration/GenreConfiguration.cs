@@ -11,5 +11,11 @@ public class GenreConfiguration : IEntityTypeConfiguration<Genre>
         builder.ToTable("Genres", "movie");
 
         builder.HasKey(g => g.Id);
+
+        builder.HasAlternateKey(g => g.GenreName);
+
+        builder.Property(g => g.GenreName);
+        builder.Property(g => g.Id);
+
     }
 }

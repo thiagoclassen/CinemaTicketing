@@ -15,6 +15,14 @@ public static class ApiEndpoints
         public const string Delete = $"{Base}/{{id:int}}";
     }
 
+    public static class Genres
+    {
+        private const string Base = $"{ApiBase}/genres";
+
+        public const string Get = $"{Base}/{{id:int}}";
+        public const string GetAll = Base;
+    }
+
     public static class Errors
     {
         public const string Base = "/error";

@@ -4,9 +4,6 @@ namespace CinemaTicketing.Application.Common.Interfaces;
 
 public interface IGenreRepository
 {
-    Task AddAsync(Genre genre, CancellationToken cancellationToken);
-    Task<Genre?> GetByIdAsync(int genreId, CancellationToken cancellationToken);
+    Task<Genre?> GetByIdAsync(int id, CancellationToken cancellationToken);
     Task<List<Genre>> ListAsync(CancellationToken cancellationToken);
-    Task RemoveAsync(Genre genre, CancellationToken cancellationToken);
-    Task UpdateAsync(Genre genre, CancellationToken cancellationToken);
 }

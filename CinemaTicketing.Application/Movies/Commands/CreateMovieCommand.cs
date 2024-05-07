@@ -13,7 +13,7 @@ public record CreateMovieCommand(
     string Director,
     int Duration,
     int AgeRestriction,
-    List<Genre> Genres
+    List<string> Genres
 ) : IRequest<ErrorOr<Movie>>;
 
 public class CreateMovieCommandHandler : IRequestHandler<CreateMovieCommand, ErrorOr<Movie>>
@@ -35,7 +35,7 @@ public class CreateMovieCommandHandler : IRequestHandler<CreateMovieCommand, Err
             Director = command.Director,
             Duration = command.Duration,
             AgeRestriction = command.AgeRestriction,
-            Genres = command.Genres
+            Genres = command.Genres.Select(genre => new Genre(genre)).ToList()
         };
 
         await _movieRepository.AddAsync(movie, cancellationToken);
@@ -62,5 +62,11 @@ public class CreateMovieCommandValidator : AbstractValidator<CreateMovieCommand>
         RuleFor(x => x.AgeRestriction)
             .GreaterThan(0)
             .LessThan(21);
+        RuleFor(x => x.Genres)
+            .Custom((genres, context) =>
+            {
+                foreach (var genre in genres.Where(genre => Genre.ListGenres().All(x => x.GenreName != genre)))
+                    context.AddFailure("Genres", $"Genre {genre} is not valid. GET /api/genres for available genres.");
+            });
     }
 }

@@ -13,7 +13,9 @@ public class ApiController : ControllerBase
         if (errors.Count is 0) return Problem();
         if (errors.All(error => error.Type == ErrorType.Validation)) return ValidationProblem(errors);
 
-        HttpContext.Items[HttpContextItemKey.Errors] = errors;
+        // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+        if (HttpContext is not null) // Prevents crashing in unit tests
+            HttpContext.Items[HttpContextItemKey.Errors] = errors;
 
         var fistError = errors.First();
 

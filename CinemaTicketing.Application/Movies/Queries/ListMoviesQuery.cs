@@ -7,11 +7,11 @@ namespace CinemaTicketing.Application.Movies.Queries;
 
 public record ListMoviesQuery : IRequest<ErrorOr<List<Movie>>>;
 
-public class ListmoviesQueryHandler : IRequestHandler<ListMoviesQuery, ErrorOr<List<Movie>>>
+public class ListMoviesQueryHandler : IRequestHandler<ListMoviesQuery, ErrorOr<List<Movie>>>
 {
     private readonly IMovieRepository _movieRepository;
 
-    public ListmoviesQueryHandler(IMovieRepository movieRepository)
+    public ListMoviesQueryHandler(IMovieRepository movieRepository)
     {
         _movieRepository = movieRepository;
     }

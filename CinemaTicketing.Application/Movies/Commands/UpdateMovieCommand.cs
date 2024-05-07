@@ -2,7 +2,6 @@
 using CinemaTicketing.Application.Movies.Mapping;
 using CinemaTicketing.Contracts.Movies.Response;
 using CinemaTicketing.Domain.Common.Errors;
-using CinemaTicketing.Domain.Movies;
 using ErrorOr;
 using FluentValidation;
 using MediatR;
@@ -17,7 +16,7 @@ public record UpdateMovieCommand(
     string Director,
     int Duration,
     int AgeRestriction,
-    List<Genre> Genres
+    List<string> Genres
 ) : IRequest<ErrorOr<MovieResponse>>;
 
 public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand, ErrorOr<MovieResponse>>

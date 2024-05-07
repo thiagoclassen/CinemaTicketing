@@ -12,8 +12,11 @@ public class MovieConfiguration : IEntityTypeConfiguration<Movie>
 
         builder.HasKey(m => m.Id);
 
+        builder.Property(m => m.Slug);
+        
         builder
             .HasMany(m => m.Genres)
             .WithMany();
     }
 }
+

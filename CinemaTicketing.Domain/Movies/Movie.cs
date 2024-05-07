@@ -4,16 +4,27 @@ namespace CinemaTicketing.Domain.Movies;
 
 public partial class Movie
 {
+    private string _slug = string.Empty;
     public int Id { get; init; }
-    public required string Title { get; init; }
-    public required int YearOfRelease { get; init; }
-    public string Slug => GenerateSlug();
-    public required string Description { get; init; }
-    public required string Director { get; init; }
-    public required int Duration { get; init; }
-    public required int AgeRestriction { get; init; }
+    public required string Title { get; set; }
+    public required int YearOfRelease { get; set; }
 
-    public List<Genre> Genres { get; init; } = [];
+    public string Slug
+    {
+        get => GenerateSlug();
+        init
+        {
+            _slug = value;
+            GenerateSlug();
+        }
+    }
+
+    public required string Description { get; set; }
+    public required string Director { get; set; }
+    public required int Duration { get; set; }
+    public required int AgeRestriction { get; set; }
+
+    public List<Genre> Genres { get; set; } = [];
 
     private string GenerateSlug()
     {

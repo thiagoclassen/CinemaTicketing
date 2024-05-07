@@ -17,7 +17,7 @@ namespace CinemaTicketing.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -32,11 +32,120 @@ namespace CinemaTicketing.Infrastructure.Migrations
 
                     b.Property<string>("GenreName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
+                    b.HasAlternateKey("GenreName");
+
                     b.ToTable("Genres", "movie");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GenreName = "Action"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            GenreName = "Adventure"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            GenreName = "Comedy"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            GenreName = "Drama"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            GenreName = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            GenreName = "Horror"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            GenreName = "Mystery"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            GenreName = "Romance"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            GenreName = "Thriller"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            GenreName = "SciFi"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            GenreName = "Western"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            GenreName = "Animation"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            GenreName = "Crime"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            GenreName = "Documentary"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            GenreName = "Family"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            GenreName = "History"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            GenreName = "Music"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            GenreName = "War"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            GenreName = "Sport"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            GenreName = "Biography"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            GenreName = "Musical"
+                        });
                 });
 
             modelBuilder.Entity("CinemaTicketing.Domain.Movies.Movie", b =>
@@ -60,6 +169,10 @@ namespace CinemaTicketing.Infrastructure.Migrations
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()

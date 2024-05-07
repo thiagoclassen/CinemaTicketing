@@ -14,31 +14,13 @@ public class GenreRepository : IGenreRepository
         _context = context;
     }
 
-    public async Task AddAsync(Genre genre, CancellationToken cancellationToken)
+    public async Task<Genre?> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
-        _context.Genres.Add(genre);
-        await _context.SaveChangesAsync(cancellationToken);
+        return await _context.Genres.FirstOrDefaultAsync(g => g.Id == id, cancellationToken);
     }
-
-    public async Task<Genre?> GetByIdAsync(int genreId, CancellationToken cancellationToken)
-    {
-        return await _context.Genres.FindAsync([genreId], cancellationToken);
-    }
-
+    
     public async Task<List<Genre>> ListAsync(CancellationToken cancellationToken)
     {
         return await _context.Genres.ToListAsync(cancellationToken);
-    }
-
-    public async Task RemoveAsync(Genre genre, CancellationToken cancellationToken)
-    {
-        _context.Genres.Remove(genre);
-        await _context.SaveChangesAsync(cancellationToken);
-    }
-
-    public async Task UpdateAsync(Genre genre, CancellationToken cancellationToken)
-    {
-        _context.Genres.Update(genre);
-        await _context.SaveChangesAsync(cancellationToken);
     }
 }

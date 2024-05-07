@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace CinemaTicketing.Infrastructure.Migrations
 {
     /// <inheritdoc />
@@ -33,11 +35,12 @@ namespace CinemaTicketing.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    GenreName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    GenreName = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Genres", x => x.Id);
+                    table.UniqueConstraint("AK_Genres_GenreName", x => x.GenreName);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,6 +52,7 @@ namespace CinemaTicketing.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     YearOfRelease = table.Column<int>(type: "int", nullable: false),
+                    Slug = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
@@ -244,6 +248,35 @@ namespace CinemaTicketing.Infrastructure.Migrations
                         principalSchema: "theater",
                         principalTable: "Seats",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                schema: "movie",
+                table: "Genres",
+                columns: new[] { "Id", "GenreName" },
+                values: new object[,]
+                {
+                    { 1, "Action" },
+                    { 2, "Adventure" },
+                    { 3, "Comedy" },
+                    { 4, "Drama" },
+                    { 5, "Fantasy" },
+                    { 6, "Horror" },
+                    { 7, "Mystery" },
+                    { 8, "Romance" },
+                    { 9, "Thriller" },
+                    { 10, "SciFi" },
+                    { 11, "Western" },
+                    { 12, "Animation" },
+                    { 13, "Crime" },
+                    { 14, "Documentary" },
+                    { 15, "Family" },
+                    { 16, "History" },
+                    { 17, "Music" },
+                    { 18, "War" },
+                    { 19, "Sport" },
+                    { 20, "Biography" },
+                    { 21, "Musical" }
                 });
 
             migrationBuilder.CreateIndex(

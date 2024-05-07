@@ -1,6 +1,4 @@
-﻿using CinemaTicketing.Domain.Movies;
-
-namespace CinemaTicketing.Contracts.Movies.Request;
+﻿namespace CinemaTicketing.Contracts.Movies.Request;
 
 public class CreateMovieRequest
 {
@@ -11,5 +9,5 @@ public class CreateMovieRequest
     public required int Duration { get; init; }
     public required int AgeRestriction { get; init; }
 
-    public required List<Genre> Genres { get; init; } = [];
+    public required List<string> Genres { get; init; } = [];
 }

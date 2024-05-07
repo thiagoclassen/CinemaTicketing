@@ -45,7 +45,7 @@ public static class MovieContractMapping
             Director = request.Director,
             Duration = request.Duration,
             AgeRestriction = request.AgeRestriction,
-            Genres = request.Genres
+            Genres = request.Genres.Select(g => new Genre(g)).ToList()
         };
     }
 
@@ -61,7 +61,7 @@ public static class MovieContractMapping
             Director = movie.Director,
             Duration = movie.Duration,
             AgeRestriction = movie.AgeRestriction,
-            Genres = movie.Genres.Select(x => x.GenreName).ToList()
+            Genres = movie.Genres.Select(x => x.GenreName).ToList()!
         };
     }
 

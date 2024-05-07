@@ -51,6 +51,7 @@ public class UpdateMovieTest : IClassFixture<MovieApiFactory>
             .PutAsync(UpdateMovieUrl(movieResponse!.Id), updateContent);
 
         // Assert
+        updateResult.StatusCode.Should().Be(HttpStatusCode.OK);
         var contentUpdateResponse = await updateResult.Content.ReadAsStringAsync();
         var movieUpdateResponse = JsonSerializer
             .Deserialize<MovieResponse>(
@@ -58,7 +59,6 @@ public class UpdateMovieTest : IClassFixture<MovieApiFactory>
                 MovieConstants.GetJsonSerializerOptions()
             );
 
-        updateResult.StatusCode.Should().Be(HttpStatusCode.OK);
         movieUpdateResponse.Should().BeOfType<MovieResponse>();
         movieUpdateResponse!.Id.Should().Be(movieResponse!.Id);
         movieUpdateResponse!.Title.Should().Be(updateMovieRequest.Title);
