@@ -2,7 +2,7 @@
 
 namespace CinemaTicketing.Domain.Reservations;
 
-public class SeatReservation
+public sealed class SeatReservation
 {
     public int Id { get; init; }
     public int ReservationId { get; init; }

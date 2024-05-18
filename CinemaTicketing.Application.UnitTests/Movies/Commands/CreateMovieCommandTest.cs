@@ -1,5 +1,5 @@
-using CinemaTicketing.Application.Common.Interfaces;
 using CinemaTicketing.Application.Movies.Commands;
+using CinemaTicketing.Application.Movies.Repositories;
 using CinemaTicketing.Domain.Movies;
 using CinemaTicketing.Tests.Utils.Movies;
 using FluentAssertions;

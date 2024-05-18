@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Common.Interfaces;
+﻿using CinemaTicketing.Application.Movies.Repositories;
 using CinemaTicketing.Domain.Movies;
 using ErrorOr;
 using MediatR;

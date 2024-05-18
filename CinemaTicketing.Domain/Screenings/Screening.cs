@@ -1,6 +1,6 @@
 ﻿namespace CinemaTicketing.Domain.Screenings;
 
-public class Screening
+public sealed class Screening
 {
     public int Id { get; set; }
     public DateTime Schedule { get; set; }

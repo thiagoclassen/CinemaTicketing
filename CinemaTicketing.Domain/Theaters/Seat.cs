@@ -1,6 +1,6 @@
 ﻿namespace CinemaTicketing.Domain.Theaters;
 
-public class Seat
+public sealed class Seat
 {
     public int Id { get; init; }
     public required string Row { get; init; }

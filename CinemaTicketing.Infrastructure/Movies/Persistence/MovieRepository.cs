@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Common.Interfaces;
+﻿using CinemaTicketing.Application.Movies.Repositories;
 using CinemaTicketing.Domain.Movies;
 using CinemaTicketing.Infrastructure.Common;
 using Microsoft.EntityFrameworkCore;

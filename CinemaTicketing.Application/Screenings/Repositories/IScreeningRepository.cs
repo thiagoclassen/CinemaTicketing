@@ -1,6 +1,6 @@
 ﻿using CinemaTicketing.Domain.Screenings;
 
-namespace CinemaTicketing.Application.Common.Interfaces;
+namespace CinemaTicketing.Application.Screenings.Repositories;
 
 public interface IScreeningRepository
 {

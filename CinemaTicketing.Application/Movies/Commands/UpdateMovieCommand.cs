@@ -1,5 +1,5 @@
-﻿using CinemaTicketing.Application.Common.Interfaces;
-using CinemaTicketing.Application.Movies.Mapping;
+﻿using CinemaTicketing.Application.Movies.Mapping;
+using CinemaTicketing.Application.Movies.Repositories;
 using CinemaTicketing.Contracts.Movies.Response;
 using CinemaTicketing.Domain.Common.Errors;
 using ErrorOr;

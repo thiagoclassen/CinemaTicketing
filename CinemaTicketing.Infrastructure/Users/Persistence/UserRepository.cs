@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Common.Interfaces;
+﻿using CinemaTicketing.Application.Users.Repositories;
 using CinemaTicketing.Domain.Users;
 using CinemaTicketing.Infrastructure.Common;
 

@@ -1,6 +1,6 @@
 ﻿using CinemaTicketing.Domain.Movies;
 
-namespace CinemaTicketing.Application.Common.Interfaces;
+namespace CinemaTicketing.Application.Movies.Repositories;
 
 public interface IMovieRepository
 {

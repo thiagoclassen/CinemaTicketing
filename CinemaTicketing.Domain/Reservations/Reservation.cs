@@ -3,7 +3,7 @@ using CinemaTicketing.Domain.Users;
 
 namespace CinemaTicketing.Domain.Reservations;
 
-public class Reservation
+public sealed class Reservation
 {
     public int Id { get; init; }
     public required bool Confirmed { get; init; }

@@ -2,7 +2,7 @@
 
 namespace CinemaTicketing.Domain.Theaters;
 
-public class Room
+public sealed class Room
 {
     public int Id { get; set; }
     public int Capacity { get; set; }

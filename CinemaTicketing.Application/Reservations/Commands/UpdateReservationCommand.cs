@@ -1,4 +1,4 @@
-﻿using CinemaTicketing.Application.Common.Interfaces;
+﻿using CinemaTicketing.Application.Reservations.Repositories;
 using CinemaTicketing.Domain.Reservations;
 using MediatR;
 

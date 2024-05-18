@@ -1,4 +1,8 @@
-﻿using CinemaTicketing.Application.Common.Interfaces;
+﻿using CinemaTicketing.Application.Movies.Repositories;
+using CinemaTicketing.Application.Reservations.Repositories;
+using CinemaTicketing.Application.Screenings.Repositories;
+using CinemaTicketing.Application.Theaters.Repositories;
+using CinemaTicketing.Application.Users.Repositories;
 using CinemaTicketing.Infrastructure.Common;
 using CinemaTicketing.Infrastructure.Movies.Persistence;
 using CinemaTicketing.Infrastructure.Reservations.Persistence;

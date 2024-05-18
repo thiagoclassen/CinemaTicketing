@@ -1,6 +1,6 @@
 ﻿using CinemaTicketing.Domain.Theaters;
 
-namespace CinemaTicketing.Application.Common.Interfaces;
+namespace CinemaTicketing.Application.Theaters.Repositories;
 
 public interface ISeatRepository
 {

@@ -2,9 +2,9 @@
 
 namespace CinemaTicketing.Domain.Users;
 
-public class User
+public sealed class User
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 
     public required string Name { get; init; }
 

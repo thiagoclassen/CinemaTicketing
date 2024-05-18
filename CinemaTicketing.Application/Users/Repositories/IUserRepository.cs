@@ -1,6 +1,6 @@
 ﻿using CinemaTicketing.Domain.Users;
 
-namespace CinemaTicketing.Application.Common.Interfaces;
+namespace CinemaTicketing.Application.Users.Repositories;
 
 public interface IUserRepository
 {

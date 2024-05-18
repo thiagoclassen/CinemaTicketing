@@ -2,7 +2,7 @@
 
 namespace CinemaTicketing.Domain.Movies;
 
-public partial class Movie
+public sealed partial class Movie
 {
     private string _slug = string.Empty;
     public int Id { get; init; }
