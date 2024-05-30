@@ -41,7 +41,7 @@ public class MoviesControllerTests
         var movieResponse = (MovieResponse)result.Value!;
         result.StatusCode.Should().Be(201);
         movieResponse.ValidateCreation(createMovieRequest);
-        result.ActionName.Should().Be(nameof(_controller.Create));
+        result.ActionName.Should().Be(nameof(_controller.GetMovieById));
     }
 
     [Fact]
