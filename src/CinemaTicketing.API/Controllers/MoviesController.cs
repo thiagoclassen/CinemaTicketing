@@ -24,7 +24,7 @@ public class MoviesController : ApiController
         var result = await _mediator.Send(command, token);
 
         return result.Match(
-            _ => CreatedAtAction(nameof(Create), new { result.Value.Id }, result.Value.MapToMovieResponse()),
+            _ => CreatedAtAction(nameof(GetMovieById), new { result.Value.Id }, result.Value.MapToMovieResponse()),
             errors => Problem(errors)
         );
     }

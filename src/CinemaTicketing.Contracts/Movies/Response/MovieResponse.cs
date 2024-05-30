@@ -11,5 +11,5 @@ public class MovieResponse
     public required int Duration { get; init; }
     public required int AgeRestriction { get; init; }
 
-    public required IEnumerable<string> Genres { get; init; } = Enumerable.Empty<string>();
+    public required IEnumerable<string> Genres { get; init; } = [];
 }
